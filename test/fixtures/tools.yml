@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  language: MyString
-  json_spec: 
+  name: BMI
+  language: en
+  json_spec:
 
 two:
-  name: MyString
-  language: MyString
-  json_spec: 
+  name: nBMI
+  language: en
+  json_spec:
