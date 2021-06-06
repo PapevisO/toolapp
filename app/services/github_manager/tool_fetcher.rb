@@ -29,8 +29,13 @@ module GithubManager
 
     def try_fetch(master = false)
       path = @paths[master ? :master : :slave]
-      require 'pry'; ::Kernel.binding.pry
-      github_api_response = Octokit.contents config.owner_repo, path: path, ref: config.branch
+      options = {
+        path: path,
+        ref: config.branch
+      }
+      options[:access_token] = config.access_token if config.access_token
+
+      github_api_response = Octokit.contents config.owner_repo, options
 
       ToolResult.new(
         SUCCESS,

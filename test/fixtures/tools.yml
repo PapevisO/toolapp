@@ -1,11 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: BMI
+master_tool:
+  name: master_tool
   language: en
   json_spec: <%= File.read(Rails.root.join('test/fixtures/files', 'BMI.en.master.json')) %>
 
-two:
-  name: nBMI
+slave_tool:
+  name: slave_tool
+  language: en
+  json_spec: <%= File.read(Rails.root.join('test/fixtures/files', 'BMI.en.master.json')) %>
+
+invalid_tool:
+  name: invalid_tool
+  language: en
+  json_spec: <%= File.read(Rails.root.join('test/fixtures/files', 'BMI.en.master.json')) %>
+
+missing_tool:
+  name: missing_tool
   language: en
   json_spec: <%= File.read(Rails.root.join('test/fixtures/files', 'BMI.en.master.json')) %>

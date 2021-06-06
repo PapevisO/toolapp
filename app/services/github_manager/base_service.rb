@@ -11,6 +11,7 @@ module GithubManager
 
     config_accessor(:owner_repo) { 'PapevisO/toolapp-specs' }
     config_accessor(:branch) { ENV['RAILS_ENV'] == 'test' ? 'test' : 'master' }
+    config_accessor(:access_token) { ENV['GITHUB_ACCESS_TOKEN'] }
 
     def config
       self.class.config
@@ -18,7 +19,7 @@ module GithubManager
   end
 
   class ToolResult
-    attr_reader :state, :filename, :json_raw, :json
+    attr_reader :state, :filename, :is_master, :json_raw, :json
 
     def initialize(state, filename = nil, is_master = nil, json_raw = nil)
       @state = state
@@ -26,6 +27,9 @@ module GithubManager
       @is_master = is_master
       @json_raw = json_raw
       @json = JSON.parse(json_raw) if json_raw
+    rescue JSON::ParserError
+      @state = FAILURE
+      @json_invalid = true
     end
 
     # other context legacy mapper
@@ -47,6 +51,10 @@ module GithubManager
 
     def fail
       @state == FAILURE
+    end
+
+    def json_invalid
+      !!@json_invalid
     end
   end
 end
