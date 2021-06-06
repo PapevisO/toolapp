@@ -3,9 +3,9 @@
 one:
   name: BMI
   language: en
-  json_spec:
+  json_spec: <%= File.read(Rails.root.join('test/fixtures/files', 'BMI.en.master.json')) %>
 
 two:
   name: nBMI
   language: en
-  json_spec:
+  json_spec: <%= File.read(Rails.root.join('test/fixtures/files', 'BMI.en.master.json')) %>
