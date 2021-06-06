@@ -12,10 +12,6 @@ module GithubManager
     config_accessor(:owner_repo) { 'PapevisO/toolapp-specs' }
     config_accessor(:branch) { ENV['RAILS_ENV'] == 'test' ? 'test' : 'master' }
     config_accessor(:access_token) { ENV['GITHUB_ACCESS_TOKEN'] }
-
-    def config
-      self.class.config
-    end
   end
 
   class ToolResult
