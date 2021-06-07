@@ -7,8 +7,8 @@ module LokaliseManager
   class BaseService < ApplicationService
     include ActiveSupport::Configurable
 
-    config_accessor(:project_id)
-    config_accessor(:api_key)
+    config_accessor(:project_id) { ENV['lokalise_project_id'] }
+    config_accessor(:api_key) { ENV['lokalise_api_key'] }
   end
 
   class LokaliseResult

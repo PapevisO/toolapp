@@ -9,9 +9,9 @@ module GithubManager
   class BaseService < ApplicationService
     include ActiveSupport::Configurable
 
-    config_accessor(:owner_repo) { 'PapevisO/toolapp-specs' }
-    config_accessor(:branch) { ENV['RAILS_ENV'] == 'test' ? 'test' : 'master' }
-    config_accessor(:access_token) { ENV['GITHUB_ACCESS_TOKEN'] }
+    config_accessor(:owner_repo) { ENV['github_manager_owner_repo'] }
+    config_accessor(:branch) { ENV['github_manager_branch'] }
+    config_accessor(:access_token) { ENV['github_manager_access_token'] }
   end
 
   class ToolResult
