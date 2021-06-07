@@ -59,3 +59,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "octokit", "~> 4.21"
 
 gem "pry-byebug", "~> 3.9", :groups => [:development, :test]
+
+gem "figaro", "~> 1.2"
